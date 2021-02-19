@@ -15,7 +15,7 @@ function saveTodo() {
 
 function displayTodos() {
     const todoList = document.querySelector("#todo-list");
-    todoList.innerHTML = "";
+    todoList.textContent = "";
     const ids = getSavedTodosIds();
 
     ids.forEach((id) => {
