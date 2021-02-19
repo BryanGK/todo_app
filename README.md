@@ -2,7 +2,7 @@
 
 ### A Todo List build with HTML, CSS, and JavaScript 
 
-### See it [here](https://bryangk.github.io/pomodoro/)
+### See it [here](https://bryangk.github.io/todo_app/)
 
 ![](todo.png)
 
