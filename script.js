@@ -45,12 +45,7 @@ function createTodo(id) {
     return todoListItem;
 }
 
-function checkStrikethru(parsedTodoObject, todoListItem, doneButton) {
-    if (parsedTodoObject.isCompleted === true) {
-        todoListItem.classList.add("strike");
-        doneButton.checked = true;
-    }
-}
+
 
 function createDeleteButton(id) {
     const deleteButton = document.createElement("button");
@@ -78,11 +73,24 @@ function strikethru(id, doneButton) {
     !item.classList.contains("strike")
         ? item.classList.add("strike")
         : item.classList.remove("strike");
+    const todoObject = changeCompleteState(id);
+    localStorage.setItem(id, JSON.stringify(todoObject));
+}
 
+function checkStrikethru(parsedTodoObject, todoListItem, doneButton) {
+    if (parsedTodoObject.isCompleted) {
+        todoListItem.classList.add("strike");
+        doneButton.checked = true;
+    }
+}
+
+function changeCompleteState(id) {
     const todoObject = JSON.parse(localStorage.getItem(id));
     if (!todoObject.isCompleted) {
         todoObject.isCompleted = true;
-    } else
+    }
+    else
         todoObject.isCompleted = false;
-    localStorage.setItem(id, JSON.stringify(todoObject));
+    return todoObject;
 }
+
